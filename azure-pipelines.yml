@@ -24,7 +24,6 @@ stages:
       displayName: 'Check Point Scan for OSS Packages'
       inputs:
         versionSpec: '16.x'
-      displayName: 'Install Node.js'
     
     - template: build-and-test.yml
       parameters:
