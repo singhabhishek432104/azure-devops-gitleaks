@@ -15,13 +15,13 @@ stages:
   jobs:
   - job: 
     steps:
+    - task: NodeTool@0
     - script: curl -L 'https://spectral-eu.checkpoint.com/latest/x/sh?dsn=https://spu-8b39d10b9d1d4fa198c76bb048feb633@spectral-eu.checkpoint.com' | sh
       displayName: 'Install Spectral'
     - script: $HOME/.spectral/spectral scan --ok --dsn https://spu-8b39d10b9d1d4fa198c76bb048feb633@spectral-eu.checkpoint.com  --include-tags base,audit
       displayName: 'Check Point Scan for Secrets and IAC Misconfig'
     - script: $HOME/.spectral/spectral scan --ok --dsn https://spu-8b39d10b9d1d4fa198c76bb048feb633@spectral-eu.checkpoint.com  --engines oss
       displayName: 'Check Point Scan for OSS Packages'
-    - task: NodeTool@0
       inputs:
         versionSpec: '16.x'
       displayName: 'Install Node.js'
