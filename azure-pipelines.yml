@@ -52,7 +52,6 @@ stages:
         artifact: 'vsix'
       condition: succeededOrFailed()
 
-steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
